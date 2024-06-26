@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+	version="6.0">
+	<!-- <servlet> <description></description> <display-name>EmployeeServlet</display-name> 
+		<servlet-name>EmployeeServlet</servlet-name> <servlet-class>com.hrms.servlets.EmployeeServlet</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>EmployeeServlet</servlet-name> 
+		<url-pattern>/EmployeeServlet</url-pattern> </servlet-mapping> <servlet> 
+		<description></description> <display-name>AuthenticationServlet</display-name> 
+		<servlet-name>AuthenticationServlet</servlet-name> <servlet-class>com.hrms.controllers.AuthenticationServlet</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>AuthenticationServlet</servlet-name> 
+		<url-pattern>/AuthenticationServlet</url-pattern> </servlet-mapping> -->
+
+	<context-param>
+		<param-name>dbUrl</param-name>
+		<param-value>jdbc:mysql://localhost:3306/employee_management_sys</param-value>
+	</context-param>
+	<context-param>
+		<param-name>dbUsername</param-name>
+		<param-value>root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>dbPassword</param-name>
+		<param-value>rocketfin</param-value>
+	</context-param>
+
+
+	<servlet>
+		<display-name>UserServlet</display-name>
+		<servlet-name>userServlet</servlet-name>
+		<servlet-class>com.hrms.controllers.UserServlet</servlet-class>
+		<init-param>
+			<param-name>dbUrl</param-name>
+			<param-value>jdbc:mysql://localhost:3306/user</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbUsername</param-name>
+			<param-value>user_ser</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbPassword</param-name>
+			<param-value>User@123</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userServlet</servlet-name>
+		<url-pattern>/auth/*</url-pattern>
+	</servlet-mapping>
+
+	<resource-ref>
+		<description>DB Connection</description>
+		<res-ref-name>jdbc/empManageDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>

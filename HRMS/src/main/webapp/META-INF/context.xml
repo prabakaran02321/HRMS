@@ -1,0 +1,12 @@
+<Context>
+    <Resource name="jdbc/empManageDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="20"
+              maxIdle="10"
+              maxWaitMillis="-1"
+              username="root"
+              password="root"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/emp_manage_db?useSSL=false&amp;serverTimezone=UTC"/>
+</Context>
